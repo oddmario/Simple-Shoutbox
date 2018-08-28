@@ -5,6 +5,16 @@
 	@project-repo: mariolatiffathy/Simple-Shoutbox
 	@file-description: The main script
 */
+function CountShouts($file) {
+	$linecount = 0;
+	$handle = fopen($file, "r");
+	while(!feof($handle)){
+	  $line = fgets($handle);
+	  $linecount++;
+	}
+	fclose($handle);
+	return $linecount;
+}
 if( isset( $_GET['send'] ) ) {
 	header('Content-Type: application/json');
 	if( isset($_POST['shout']) ) {
@@ -22,13 +32,23 @@ if( isset( $_GET['send'] ) ) {
 	die();
 }
 if( isset( $_GET['get'] ) ) {
+	// Configurable values
 	$num_of_shouts = 15;
-	$file = new SplFileObject('Chat.txt');
+	$shouts_file = "Chat.txt";
+	// --------------------------
+	$file = new SplFileObject($shouts_file);
 	$file->seek($file->getSize());
 	$linesTotal = $file->key()+1;
-	foreach( new LimitIterator($file, $linesTotal-$num_of_shouts) as $line) {
-		include('emotes.php');
-		echo $line.'<br />';
+	if( 0 !== filesize( $shouts_file ) ) {
+		if( CountShouts($shouts_file) < $num_of_shouts ) {
+			$num_of_shouts = CountShouts($shouts_file);
+		}
+		foreach( new LimitIterator($file, $linesTotal-$num_of_shouts) as $line) {
+			include('emotes.php');
+			echo $line.'<br />';
+		}
+	} else {
+		echo "No shouts to show!".'<br />';
 	}
 	die();
 }
