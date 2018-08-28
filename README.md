@@ -12,3 +12,9 @@ All the emotes (emojis) are in the `emotes.php` file in a format like this:
 $line = str_replace(":kek:", '<img src="https://static.nulled.to/public/style_emoticons/default/kek.png"></img>', $line); // KEK emoji
 ```
 ... The previous format means that when a user types `:kek:` , the image with URL https://static.nulled.to/public/style_emoticons/default/kek.png will be used as an emote.
+### Sources used
+* The emotes are used from https://nulled.to
+* jQuery - https://jquery.com/
+* PHP - http://php.net/
+* JavaScript
+* HTML
