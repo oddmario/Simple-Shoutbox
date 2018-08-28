@@ -1,4 +1,10 @@
 <?php
+/*
+	@author: mariolatiffathy
+	@github: https://github.com/mariolatiffathy
+	@project-repo: mariolatiffathy/Simple-Shoutbox
+	@file-description: The main script
+*/
 if( isset( $_GET['send'] ) ) {
 	header('Content-Type: application/json');
 	if( isset($_POST['shout']) ) {
