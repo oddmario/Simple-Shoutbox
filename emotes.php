@@ -9,6 +9,13 @@ ___________               __
 
 */
 
+/*
+	@author: mariolatiffathy
+	@github: https://github.com/mariolatiffathy
+	@project-repo: mariolatiffathy/Simple-Shoutbox
+	@file-description: The emotes :-)
+*/
+
 $line = str_replace(":kek:", '<img src="https://static.nulled.to/public/style_emoticons/default/kek.png"></img>', $line); // KEK emoji
 $line = str_replace(":thinkwell:", '<img src="https://static.nulled.to/public/style_emoticons/default/cant.png"></img>', $line); // ThinkWell emoji
 $line = str_replace(":doge:", '<img src="https://static.nulled.to/public/style_emoticons/default/doge.png"></img>', $line); // Doge emoji
